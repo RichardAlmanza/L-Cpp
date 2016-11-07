@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/new/Icons" lang="None">
+        <file>Images/huevo.svg</file>
+    </qresource>
+    <qresource prefix="/new/Backgrounds" lang="None">
+        <file>Images/doted.png</file>
+    </qresource>
+</RCC>
