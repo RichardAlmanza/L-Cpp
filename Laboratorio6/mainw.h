@@ -47,6 +47,8 @@ private slots:
 
     void Pendulo();
 
+    void C_Pendulo(QPoint a);
+
     void on_checkBox_toggled(bool checked);
 
 private:

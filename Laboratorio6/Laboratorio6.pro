@@ -18,16 +18,14 @@ SOURCES += main.cpp\
     intro.cpp \
     qvista.cpp \
     objetos.cpp \
-    pend.cpp \
-    refresh.cpp
+    pend.cpp
 
 HEADERS  += mainw.h \
     fisica.h \
     intro.h \
     qvista.h \
     objetos.h \
-    pend.h \
-    refresh.h
+    pend.h
 
 FORMS    += mainw.ui \
     intro.ui

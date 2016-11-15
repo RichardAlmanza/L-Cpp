@@ -19,8 +19,6 @@ void Pend::actualizar()
     setPos(x,y);
 }
 
-QPoint *Pend::get_bola(){return new QPoint(x,y);}
-
 double Pend::get_ang(){return qRadiansToDegrees(alfa);}
 
 double Pend::get_dist(){return dist;}

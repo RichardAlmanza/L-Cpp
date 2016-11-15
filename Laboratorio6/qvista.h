@@ -24,6 +24,7 @@ signals:
     void Zoomout();
     void draggmouse();
     void release_left();
+    QPoint release_right(QPoint);
 
 private:
     QPoint PO,PO2,PM,PF;

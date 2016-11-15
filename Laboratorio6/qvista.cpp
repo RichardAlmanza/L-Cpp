@@ -46,8 +46,10 @@ void QVista::mouseMoveEvent(QMouseEvent *event)
 
 void QVista::mouseReleaseEvent(QMouseEvent *event)
 {
-    if(event->buttons()!=Qt::LeftButton)
+    if(event->button()==Qt::LeftButton)
         emit release_left();
+    else if(event->button()==Qt::RightButton)
+        emit release_right(event->pos());
 }
 
 QPoint QVista::get_P_move()

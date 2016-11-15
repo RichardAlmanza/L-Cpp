@@ -9,8 +9,7 @@ class Objetos: public QGraphicsItem
 {
 private:
     Pend *super;
-    QPoint *PO,*PF;
-    bool adap;
+    QPoint *PO;
 public:
     Objetos(Pend *padre=Q_NULLPTR);
     QRectF boundingRect() const;

@@ -5,7 +5,7 @@
 #include <QPainter>
 #include <QDebug>
 #define g 9.8
-#define delta 0.0003
+#define delta 0.0002
 
 
 class Pend : public QGraphicsItem
@@ -24,7 +24,6 @@ public:
     Pend(double ang, double r, double xx, double yy, double vel);
     void actualizar();
     QPoint *get_origen();
-    QPoint *get_bola();
     double get_ang();
     double get_dist();
     QRectF boundingRect() const;

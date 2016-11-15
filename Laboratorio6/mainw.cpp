@@ -14,6 +14,7 @@ MainW::MainW(QWidget *parent) :
     connect(ui->grafica,SIGNAL(Zoomout()),this,SLOT(Zoom_out()));
     connect(ui->grafica,SIGNAL(draggmouse()),this,SLOT(Moved()));
     connect(ui->grafica_2,SIGNAL(release_left()),this,SLOT(Pendulo()));
+    connect(ui->grafica_2,SIGNAL(release_right(QPoint)),this,SLOT(C_Pendulo(QPoint)));
     scene=new QGraphicsScene;
     scene2=new QGraphicsScene;
     timer=new QTimer;
@@ -188,12 +189,29 @@ void MainW::Pendulo()
     }
 }
 
+void MainW::C_Pendulo(QPoint a)
+{
+    QPoint *punto1=new QPoint(a.x(),a.y()),*punto2=new QPoint();
+    *punto1=ui->grafica_2->get_P_ini();
+    *punto2=ui->grafica_2->get_P_fin();
+    double dist=sqrt(pow(punto1->x()-punto2->x(),2)+pow(punto1->y()-punto2->y(),2));
+    if(dist>=5)
+    {
+        sistema2.push_back(new Pend(atan2(punto2->y()-punto1->y(),punto2->x()-punto1->x()),dist,punto1->x(),punto1->y(),ui->vel_ang->value()));
+        sistema3.push_back(new Objetos(sistema2.back()));
+        scene2->addItem(sistema3.back());
+        if(!(ui->checkBox->isChecked()))
+            sistema3.back()->setOpacity(0);
+        scene2->addItem(sistema2.back());
+    }
+}
+
 void MainW::on_checkBox_toggled(bool checked)
 {
     if(checked)
     {
         for(std::list<Objetos*>::iterator it=sistema3.begin();it!=sistema3.end();++it)
-            (*it)->setOpacity(0.99);
+            (*it)->setOpacity(1);
     }
     else
     {
