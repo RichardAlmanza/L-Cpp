@@ -5,8 +5,8 @@
 #include <QPainter>
 #include <QDebug>
 #define g 10 //0.0000000000667384
-#define delta 0.1
-#define PI 3.141598
+#define delta 0.01
+
 
 class fisica: public QGraphicsItem
 {
@@ -30,6 +30,7 @@ private:
     double r=0;  //Radio de la esfera
     double k=0;  //Coeficiente de friccion
     double e=0;  //Coeficiente de Restitucion
+    double PI=3.141598;
 
 public:
     QRectF boundingRect() const;

@@ -17,7 +17,7 @@ MainW::MainW(QWidget *parent) :
     scene->addRect(scene->sceneRect());
     connect(timer,SIGNAL(timeout()),this,SLOT(Actualizar()));
     timer->setSingleShot(false);
-    timer->start(10);
+    timer->start(1);
 }
 
 MainW::~MainW()
@@ -35,11 +35,11 @@ void MainW::Crear()
         *ptr=rand()%900+31;
         *(ptr+1)=rand()%400+52;
         *(ptr+2)=rand()%300;
-        *(ptr+3)=(rand()%180)*PI/180;
+        *(ptr+3)=(rand()%180)*3.141598/180;
         *(ptr+4)=rand()%26+5;
         *(ptr+5)=rand()%551+50;
-        *(ptr+6)=(rand()%10001)/1000000;
-        *(ptr+7)=((rand()%10001)/20000)+0.5;
+        *(ptr+6)=0;
+        *(ptr+7)=(float(rand()%10001)/20000)+0.5;
         sistema.push_back(new fisica(*ptr,*(ptr+1),*(ptr+2),*(ptr+3),*(ptr+4),*(ptr+5),*(ptr+6),*(ptr+7)));
         scene->addItem(sistema.back());
         cuerpos++;

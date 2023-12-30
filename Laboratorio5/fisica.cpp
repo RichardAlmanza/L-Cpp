@@ -8,7 +8,9 @@ fisica::fisica()
 fisica::fisica(double x, double y, double v, double ang, double rad, double masa, double fricc, double rest)
     :x(x),y(-y),V(v),V_i(v),vx(v*cos(ang)),vy(v*sin(ang)),m(masa),x_i(x),y_i(-y),vx_i(vx),vy_i(vy),r(rad),e(rest),k(fricc), alfa(ang), alfa_i(ang)
 {
-    acc=-(k*pow(r,2)/m);
+    k=((float(rand()%1001))/100000.0);
+    acc=-(k*PI*pow(r,2)/m)*0.5;
+    qDebug()<<acc;
     setPos(x,-y);
 }
 
@@ -43,6 +45,7 @@ void fisica::calc_alfa()
     V=pow(vx,2)+pow(vy,2);
     ax=acc*cos(alfa)*V;
     ay=acc*sin(alfa)*V;
+    qDebug()<<"==============================>>"<<ax<<"====>>"<<vx<<"====>>"<<this;
 }
 
 
@@ -51,8 +54,8 @@ void fisica::actualizar()
     calc_alfa();
     vx+=ax*delta;
     vy+=(ay-g)*delta;
-    x+=vx*delta;
-    y+=vy*delta;
+    x+=(vx+0.5*ax*delta)*delta;
+    y+=(vy+0.5*ay*delta)*delta;
     setPos(x,-y);
 }
 
